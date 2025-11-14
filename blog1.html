@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Getting Started with Flask: A Beginner's Guide</title>
+    <meta name="description" content="A comprehensive beginner's guide to getting started with Flask, Python's lightweight web framework. Learn setup, routing, templates, and best practices." />
+    <link rel="stylesheet" href="style2.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="website1.html#home">
+            <img
+              src="static/logo.png"
+              alt="BackendBySri Logo"
+              class="logo-svg"
+              style="display: inline-block; vertical-align: middle"
+            />
+            <span style="display: inline-block; vertical-align: middle"
+              >BackendBySri</span
+            >
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="website1.html#home">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="blog-post">
+      <h1>Getting Started with Flask: A Beginner's Guide</h1>
+      <p class="blog-date">October 15, 2024</p>
+      <p class="reading-time">📖 5 min read</p>
+      <p>
+        As a Python backend developer, I've found Flask to be an incredibly
+        powerful yet simple framework for building web applications. In this
+        post, I'll share my journey of getting started with Flask and provide a
+        step-by-step guide for beginners.
+      </p>
+
+      <h2>What Makes Flask Special?</h2>
+      <p>
+        Flask is a micro web framework written in Python. Unlike heavier
+        frameworks like Django, Flask gives you the freedom to choose your own
+        tools for databases, authentication, and other components. This
+        flexibility makes it perfect for small to medium-sized applications and
+        APIs.
+      </p>
+
+      <h2>Setting Up Your Environment</h2>
+      <p>
+        Before we dive in, ensure you have Python installed (version 3.6 or
+        higher is recommended). Then, create a virtual environment and install
+        Flask:
+      </p>
+      <pre><code>python -m venv flask_env
+flask_env\Scripts\activate  # On Windows
+pip install flask</code></pre>
+
+      <h2>Building Your First Flask Application</h2>
+      <p>
+        Let's create a simple "Hello World" app. Create a file named
+        <code>app.py</code>:
+      </p>
+      <pre><code>from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return 'Hello, Flask World!'
+
+if __name__ == '__main__':
+    app.run(debug=True)</code></pre>
+
+      <p>
+        Run this with <code>python app.py</code> and visit
+        <code>http://127.0.0.1:5000/</code> to see your first Flask app in action!
+      </p>
+
+      <h2>Understanding Routes</h2>
+      <p>
+        Routes are the URLs of your application. Here's how to add more routes:
+      </p>
+      <pre><code>@app.route('/about')
+def about():
+    return 'Welcome to my about page!'
+
+@app.route('/user/<username>')
+def show_user_profile(username):
+    return f'User: {username}'</code></pre>
+
+      <p>
+        The <code><username></code> is a variable that captures part of the URL.
+      </p>
+
+      <h2>Working with Templates</h2>
+      <p>
+        For dynamic content, Flask uses Jinja2 templating. Create a
+        <code>templates</code> folder and add HTML files. Here's a simple
+        template:
+      </p>
+      <pre><code><!DOCTYPE html>
+<html>
+<head>
+    <title>My Flask App</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <p>{{ content }}</p>
+</body>
+</html></code></pre>
+
+      <p>Then in your route:</p>
+      <pre><code>from flask import render_template
+
+@app.route('/')
+def home():
+    return render_template('index.html', title='Home', content='Welcome!')</code></pre>
+
+      <h2>Next Steps</h2>
+      <p>
+        Flask is just the beginning. As you progress, explore Flask extensions
+        for databases (like Flask-SQLAlchemy), user authentication, and API
+        development. The official Flask documentation is an excellent resource.
+      </p>
+
+      <p>
+        Remember, the best way to learn is by building. Start with small
+        projects and gradually add complexity. Happy coding!
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p>©️ 2025 Made with ❤️ by Srikanth Saladi</p>
+      <a href="website1.html#home" class="scroll-top"
+        ><i class="fas fa-arrow-up"></i
+      ></a>
+    </footer>
+  </body>
+</html>

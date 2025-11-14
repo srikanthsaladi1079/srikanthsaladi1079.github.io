@@ -73,21 +73,23 @@ themeToggle.addEventListener("click", () => {
 });
 
 // Hamburger menu toggle
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-links");
 
-hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-  hamburger.classList.toggle("active");
-});
+if (hamburger && navMenu) {
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    hamburger.classList.toggle("active");
+  });
 
-// Close menu when clicking on a link
-navLinks.addEventListener("click", (e) => {
-  if (e.target.tagName === "A") {
-    navLinks.classList.remove("active");
-    hamburger.classList.remove("active");
-  }
-});
+  // Close menu when clicking on a link
+  navMenu.addEventListener("click", (e) => {
+    if (e.target.tagName === "A") {
+      navMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+    }
+  });
+}
 
 // Scroll animations
 const observerOptions = {
